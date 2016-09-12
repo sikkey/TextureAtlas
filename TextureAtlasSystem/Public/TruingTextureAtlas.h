@@ -7,7 +7,7 @@
 
 // import NMath Module
 
-class VOXELPLUGIN_API AtlasUV
+class TEXTUREATLASSYSTEM_API AtlasUV
 {
 public:
 	float x;
@@ -88,7 +88,7 @@ public:
 	MetaInfo meta;
 };
 
-class VOXELPLUGIN_API TextureAtlas
+class TEXTUREATLASSYSTEM_API TextureAtlas
 {
 public:
 	// finder

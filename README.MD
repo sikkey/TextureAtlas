@@ -13,11 +13,32 @@ insert the file to your ue4
 rename the include filename which marked "YourProject"
 
 ## TEST
-test on 4.10, all fine
+test on 4.11, all fine
 
 ## TODO
 
 maybe I will release a version as Unreal Plugin.
+
+## update 2016.9
+make it as an unreal module.
+You can setup in *.uproject :
+"Modules": [
+		{
+			"Name": "YourProjectName",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+		},
+		{
+			"Name": "TextureAtlasSystem",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"CoreUObject",
+				"Engine"
+			]
+		}
+	]
+}
 
 ## License
 

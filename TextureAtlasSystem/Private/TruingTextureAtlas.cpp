@@ -1,8 +1,9 @@
 // Copyright @7Mersenne All Rights Reserved.
 // Email: 7Mersenne@gmail.com
 
-//#include "YourProjectPrivatePCH.h"
-#include "YourProject.h"
+//#include "VoxelEnginePrivatePCH.h"
+//#include "TextureAtlasSystem.h"
+#include "TextureAtlasSystemPrivatePCH.h"
 #include "TruingTextureAtlas.h"
 #include "Json.h"
 #include "FileManagerGeneric.h"
@@ -91,10 +92,10 @@ bool TextureAtlas::InitFromTxtFile(FString filename, bool isFullPath)
 		const TSharedPtr<FJsonObject>& textureInfo = Value->AsObject();
 		TSharedPtr<FJsonObject> frame = textureInfo->GetObjectField("frame");
 		TSharedPtr<AtlasUV> uv(new AtlasUV());
-		uv->x = frame->GetNumberField("x") / width;
-		uv->y = frame->GetNumberField("y") / height;
-		uv->w = frame->GetNumberField("w") / width;
-		uv->h = frame->GetNumberField("h") / height;
+		uv->x = (frame->GetNumberField("x")) / width;
+		uv->y =( frame->GetNumberField("y") )/ height;
+		uv->w =( frame->GetNumberField("w") )/ width;
+		uv->h = (frame->GetNumberField("h") )/ height;
 
 		// set uv index
 		FName name = FName(*Name);
@@ -122,7 +123,6 @@ bool TextureAtlas::InitFromJsonFile(FString filename, bool isFullPath /*= false*
 	FString filelocation(DefaultJsonDir + filename);
 	if (isFullPath)
 		filelocation = filename;
-
 	checkf(fileManager.FileExists(*filelocation), TEXT("%texturepacker%.json file is not exist"));
 
 	FString content;
@@ -159,10 +159,10 @@ bool TextureAtlas::InitFromJsonFile(FString filename, bool isFullPath /*= false*
 
 		TSharedPtr<FJsonObject> frame = textureInfo->GetObjectField("frame");
 		TSharedPtr<AtlasUV> uv(new AtlasUV());
-		uv->x = frame->GetNumberField("x") / width;
-		uv->y = frame->GetNumberField("y") / height;
-		uv->w = frame->GetNumberField("w") / width;
-		uv->h = frame->GetNumberField("h") / height;
+		uv->x = (frame->GetNumberField("x") ) / width;
+		uv->y = (frame->GetNumberField("y") ) / height;
+		uv->w = (frame->GetNumberField("w") ) / width;
+		uv->h = (frame->GetNumberField("h") ) / height;
 
 		// set uv index
 		FName name = FName(*Name);
